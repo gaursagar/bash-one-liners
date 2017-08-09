@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in `ls testfiles/*ext1`;do
+	filename=$i
+	file=`echo "${filename%%.*}"`
+	ext=`echo "${filename#*.}"`
+	echo $file
+	echo $ext
+done
