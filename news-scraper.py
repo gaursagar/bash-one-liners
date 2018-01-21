@@ -18,18 +18,21 @@ def scroll():
     # NewsLinks contains news links to articles.
     NewsLinks = []
     # Number of pages to crawl.
-    pages = 10
+    pages = 2
     for page in xrange(1, pages):
         html = urllib2.urlopen(Publishers['scroll'] + str(page))
         soup = BS(html, 'html.parser')
 
-        children = soup.find_all('li', class_='row-story')
-        for child in children:
-            news = (child.find('h1').text,)
-            news += (child.find('link').attrs['href'],)
-            news += (child.find('time').attrs['datetime'],)
-            news += (child.find('img').attrs['src'],)
-            NewsLinks.append(news)
+        politics_container = soup.find_all('div', class_='row-stories')
+        for stories in politics_container:
+            children = stories.find_all('li', class_='row-story')
+            for child in children:
+                news = (child.find('h1').text +
+                        '. \nSub:' + child.find('h2').text, )
+                news += (child.find('link').attrs['href'],)
+                news += (child.find('time').attrs['datetime'],)
+                news += (child.find('img').attrs['src'],)
+                NewsLinks.append(news)
 
     if DEBUG:
         print NewsLinks
