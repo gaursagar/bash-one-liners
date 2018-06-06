@@ -1,0 +1,11 @@
+[user]
+	email = gaursagar21@gmail.com
+	name = Sagar Gaur (firzens)
+[core]
+	editor = vim
+[url "ssh://git@ssh.github.com/"]    
+  insteadOf = https://github.com/    
+[url "ssh://git@ssh.github.com/"]     
+  insteadOf = git@github.com: 
+[http]
+[https]
