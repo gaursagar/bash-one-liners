@@ -87,3 +87,4 @@ alias ppath='echo $PATH'
 alias progs='cd $PROGS'
 ## Go to trialfusions.
 alias trials='cd $HOME/trialfusion'
+
